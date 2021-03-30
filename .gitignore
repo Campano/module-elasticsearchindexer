@@ -1,0 +1,33 @@
+/bin
+/build
+/target
+/node_modules
+/package-lock.json
+/tmp
+/temp
+/effective.pom
+/.gradle
+/.m2
+/.scannerwork
+/**.bak
+/**/Thumbs.db
+/**/.DS_Store
+
+# -- Eclipse --
+#/.classpath
+#/.settings
+#/.project
+
+# -- IntelliJ --
+#/.idea
+#/*.iml
+
+# -- VSCode --
+#/.vscode
+
+# -- Theia --
+#/.theia
+#/.factorypath
+
+# -- GitHub --
+#/.github
