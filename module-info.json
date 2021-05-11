@@ -3,7 +3,7 @@
     "name": "ElasticSearchIndexer",
     "format": "xml",
     "files": ["ElasticSearchIndexer.xml"],
-    "repository": {},
+    "repository": {"origin": {"uri": "https://github.com/simplicitesoftware/module-elasticsearchindexer.git"}},
     "version": "0.1",
     "platform": "5.2.0-alpha"
 }
