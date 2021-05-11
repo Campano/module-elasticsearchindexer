@@ -75,6 +75,28 @@ Configure `ESI_CONFIG` with ES instance
 	</data>
 </object>
 <object>
+	<name>Resource</name>
+	<action>upsert</action>
+	<data>
+		<res_object>
+			<object>
+				<name>Disposition</name>
+				<data>
+					<dis_code>default</dis_code>
+				</data>
+			</object>
+		</res_object>
+		<res_type>IMG</res_type>
+		<res_lang>ANY</res_lang>
+		<res_code>elasticsearch-logo</res_code>
+		<res_cached>0</res_cached>
+		<res_file/>
+		<res_file_compiled/>
+		<res_image>resources/Disposition/default/elasticsearch-logo.svg</res_image>
+		<row_module_id.mdl_name>ElasticSearchIndexer</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
 	<name>Script</name>
 	<action>upsert</action>
 	<data>
