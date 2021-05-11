@@ -19,14 +19,17 @@ public class EsiHelper implements java.io.Serializable {
 	 	this.g=g;
 	 	JSONObject p = new JSONObject(g.getParameter("ESI_CONFIG"));
 	 	this.esInstance=p.getString("instance");
-	 	index();
 	 }
 	 
-	 private void index(){
+	 public void indexAllModules(){
 	 	for(String mdl : getModules())
 	 		if(!ModuleDB.isSystemModule(mdl))
-	 			for(String obj : getObjects(mdl))
-	 				indexObject(obj);
+	 			indexModule(mdl);
+	 }
+	 
+	 public void indexModule(String mdl){
+ 		for(String obj : getObjects(mdl))
+ 			indexObject(obj);
 	 }
 	 
 	 private void indexObject(String objectName){

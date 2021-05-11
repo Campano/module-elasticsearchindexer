@@ -16,7 +16,7 @@ public class EsiTester {
 	@Test
 	public void test() {
 		try {
-			new EsiHelper(Grant.getSystemAdmin());
+			(new EsiHelper(Grant.getSystemAdmin())).indexAllModules();
 		} catch (Exception e) {
 			fail(e.getMessage());
 		}

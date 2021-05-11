@@ -63,7 +63,7 @@ Configure `ESI_CONFIG` with ES instance
 	<data>
 		<sys_code>ESI_CONFIG</sys_code>
 		<sys_value><![CDATA[{
-	"instance": "http://78e183b5193e.ngrok.io"
+	"instance": "http://1ab9924493b2.ngrok.io"
 }]]></sys_value>
 		<sys_value2/>
 		<sys_type>PRV</sys_type>
