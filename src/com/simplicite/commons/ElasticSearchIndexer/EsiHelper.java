@@ -24,10 +24,8 @@ public class EsiHelper implements java.io.Serializable {
 	 	this.esInstance=p.getString("instance");
 	 	this.esIndex=p.optString("index", "simplicite");
 	 	String esCredentials=p.optString("credentials", null);
-	 	if(esCredentials!=null){
-	 		esUser = esCredentials.split(":")[0];
-	 		esPassword = esCredentials.split(":")[0];
-	 	}
+ 		this.esUser = esCredentials!=null ? esCredentials.split(":")[0] : null;
+ 		this.esPassword = esCredentials!=null ? esCredentials.split(":")[0] : null;
 	 }
 	 
 	 public void indexAllModules(){
