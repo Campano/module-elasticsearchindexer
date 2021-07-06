@@ -56,14 +56,14 @@ public class EsiHelper implements java.io.Serializable {
 	 }
 	 
 	 private void indexEsDoc(String id, JSONObject doc){
-	 	String url = esInstance+"/simplicite/_doc/"+id;
+	 	String url = esInstance+"/"+esIndex+"/_doc/"+id;
 	 	AppLog.info("Indexing at "+url+" : "+doc.toString(), Grant.getSystemAdmin());
 	 	try{
 	 		String result = RESTTool.post(doc, "application/json", url, esUser, esPassword);
 	 		//AppLog.info("Result : "+result, g);
 	 	}
 	 	catch(Exception e){
-	 		
+	 		AppLog.error("Error calling elasticsearch", e, g);
 	 	}
 	 	
 		/*String rslt = Unirest
