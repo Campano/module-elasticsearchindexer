@@ -5,13 +5,12 @@
 	<action>upsert</action>
 	<data>
 		<mdl_name>ElasticSearchIndexer</mdl_name>
-		<mdl_version>0.1</mdl_version>
+		<mdl_version>1</mdl_version>
 		<mdl_prefix>esi</mdl_prefix>
 		<mdl_url><![CDATA[{
 	"type": "git",
 	"origin": { "uri": "https://github.com/simplicitesoftware/module-elasticsearchindexer.git" }
 }]]></mdl_url>
-		<mdl_lastupd/>
 		<mdl_comment><![CDATA[Elastic Search playground module
 ====================
 
