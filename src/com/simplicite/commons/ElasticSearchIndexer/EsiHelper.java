@@ -26,14 +26,14 @@ public class EsiHelper implements java.io.Serializable {
 	 public EsiHelper(Grant g, JSONObject p){
 	 	this.g=g;
 	 	this.esInstance=p.getString("instance");
-	 	this.esIndex=p.optString("index", "simplicite");
+	 	this.esIndex=p.optString("index", "simplicite").toLowerCase();
 	 	String esCredentials=p.optString("credentials", null);
  		this.esUser = esCredentials!=null ? esCredentials.split(":")[0] : null;
  		this.esPassword = esCredentials!=null ? esCredentials.split(":")[1] : null;
 	 }
 	 
 	 public void setIndex(String index){
-	 	esIndexOverride = index;
+	 	esIndexOverride = index.toLowerCase();
 	 }
 	 
 	 public void setDefaultIndex(){
