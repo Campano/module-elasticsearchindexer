@@ -2,7 +2,7 @@
 # / __(_)_ __  _ __| (_)__(_) |_ /_/
 # \__ \ | '  \| '_ \ | / _| |  _/ -_)
 # |___/_|_|_|_| .__/_|_\__|_|\__\___|
-#             |_| Module: ElasticSearchIndexer 1
+#             |_| Module: ElasticSearchIndexer 0.1
 paths:
   /login:
     get:
@@ -167,4 +167,4 @@ info:
     email: contact@simplicitesoftware.com
   description: API for module ElasticSearchIndexer
   title: ElasticSearchIndexer
-  version: '1'
+  version: '0.1'

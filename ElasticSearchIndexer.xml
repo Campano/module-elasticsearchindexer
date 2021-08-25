@@ -5,13 +5,13 @@
 	<action>upsert</action>
 	<data>
 		<mdl_name>ElasticSearchIndexer</mdl_name>
-		<mdl_version>1</mdl_version>
+		<mdl_version>0.1</mdl_version>
 		<mdl_prefix>esi</mdl_prefix>
 		<mdl_url><![CDATA[{
 	"type": "git",
 	"origin": { "uri": "https://github.com/simplicitesoftware/module-elasticsearchindexer.git" }
 }]]></mdl_url>
-		<mdl_type>T</mdl_type>
+		<mdl_lastupd/>
 		<mdl_comment><![CDATA[Elastic Search playground module
 ====================
 
@@ -82,7 +82,7 @@ Configure `ESI_CONFIG` with ES instance
 	<data>
 		<res_object>
 			<object>
-							<name>Disposition</name>
+				<name>Disposition</name>
 				<data>
 					<dis_code>default</dis_code>
 				</data>
@@ -93,6 +93,7 @@ Configure `ESI_CONFIG` with ES instance
 		<res_code>elasticsearch-logo</res_code>
 		<res_cached>0</res_cached>
 		<res_file/>
+		<res_file_compiled/>
 		<res_image>resources/Disposition/default/elasticsearch-logo.svg</res_image>
 		<row_module_id.mdl_name>ElasticSearchIndexer</row_module_id.mdl_name>
 	</data>
@@ -110,25 +111,6 @@ Configure `ESI_CONFIG` with ES instance
 		<scr_code>EsiTester</scr_code>
 		<scr_file>test/src/com/simplicite/tests/ElasticSearchIndexer/EsiTester.java</scr_file>
 		<scr_type>TST</scr_type>
-		<row_module_id.mdl_name>ElasticSearchIndexer</row_module_id.mdl_name>
-	</data>
-</object>
-<object>
-	<name>ModuleCommit</name>
-	<action>upsert</action>
-	<data>
-		<row_module_id.mdl_name>ElasticSearchIndexer</row_module_id.mdl_name>
-	</data>
-	<data>
-		<row_module_id.mdl_name>ElasticSearchIndexer</row_module_id.mdl_name>
-	</data>
-	<data>
-		<row_module_id.mdl_name>ElasticSearchIndexer</row_module_id.mdl_name>
-	</data>
-	<data>
-		<row_module_id.mdl_name>ElasticSearchIndexer</row_module_id.mdl_name>
-	</data>
-	<data>
 		<row_module_id.mdl_name>ElasticSearchIndexer</row_module_id.mdl_name>
 	</data>
 </object>
