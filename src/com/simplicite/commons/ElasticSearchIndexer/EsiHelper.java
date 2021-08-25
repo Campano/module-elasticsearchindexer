@@ -12,20 +12,48 @@ import org.json.JSONObject;
 public class EsiHelper implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	 
-	 Grant g;
-	 String esInstance;
-	 String esIndex;
-	 String esUser;
-	 String esPassword;
+	 private Grant g;
+	 private String esInstance;
+	 private String esIndex;
+	 private String esIndexOverride;
+	 private String esUser;
+	 private String esPassword;
 	 
 	 public EsiHelper(Grant g){
+	 	this(g, new JSONObject(g.getParameter("ESI_CONFIG")));
+	 }
+	 
+	 public EsiHelper(Grant g, JSONObject p){
 	 	this.g=g;
-	 	JSONObject p = new JSONObject(g.getParameter("ESI_CONFIG"));
 	 	this.esInstance=p.getString("instance");
 	 	this.esIndex=p.optString("index", "simplicite");
 	 	String esCredentials=p.optString("credentials", null);
  		this.esUser = esCredentials!=null ? esCredentials.split(":")[0] : null;
  		this.esPassword = esCredentials!=null ? esCredentials.split(":")[1] : null;
+	 }
+	 
+	 public void setIndex(String index){
+	 	esIndexOverride = index;
+	 }
+	 
+	 public void setDefaultIndex(){
+	 	esIndexOverride = null;
+	 }
+	 
+	 public String getDefaultIndex(){
+	 	return esIndex;
+	 }
+	 
+	 public void indexEsDoc(String id, JSONObject doc){
+	 	String index = esIndexOverride!=null ? esIndexOverride : esIndex;
+	 	String url = esInstance+"/"+index+"/_doc/"+id;
+	 	AppLog.info("Indexing at "+url+" : "+doc.toString(), Grant.getSystemAdmin());
+	 	try{
+	 		String result = RESTTool.post(doc, "application/json", url, esUser, esPassword);
+	 	}
+	 	catch(Exception e){
+	 		AppLog.error("Error calling elasticsearch", e, g);
+	 	}
 	 }
 	 
 	 public void indexAllModules(){
@@ -55,26 +83,6 @@ public class EsiHelper implements java.io.Serializable {
 	 	}
 	 }
 	 
-	 private void indexEsDoc(String id, JSONObject doc){
-	 	String url = esInstance+"/"+esIndex+"/_doc/"+id;
-	 	AppLog.info("Indexing at "+url+" : "+doc.toString(), Grant.getSystemAdmin());
-	 	try{
-	 		String result = RESTTool.post(doc, "application/json", url, esUser, esPassword);
-	 		//AppLog.info("Result : "+result, g);
-	 	}
-	 	catch(Exception e){
-	 		AppLog.error("Error calling elasticsearch", e, g);
-	 	}
-	 	
-		/*String rslt = Unirest
-			.put(url)
-			.header("Content-Type", "application/json")
-			.body(doc)
-			.asString()
-			.getBody();
-		AppLog.info("Result : "+rslt, Grant.getSystemAdmin());*/
-	 }
-	 
 	 private String[] getModules(){
 	 	ObjectDB m = g.getTmpObject("Module");
 	 	synchronized(m){
@@ -82,6 +90,7 @@ public class EsiHelper implements java.io.Serializable {
 	 		return Tool.getColumnOfMatrixAsArray(m.search(), m.getFieldIndex("mdl_name"));
 	 	}
 	 }
+	 
 	 private String[] getObjects(String mdl){
 	 	ObjectDB o = g.getTmpObject("ObjectInternal");
 	 	synchronized(o){
