@@ -1,8 +1,8 @@
 {
-    "date": "2021-08-25 14:04:38",
+    "date": "2021-08-25 16:34:25",
     "name": "ElasticSearchIndexer",
-    "format": "json",
-    "files": ["ElasticSearchIndexer.json"],
+    "format": "xml",
+    "files": ["ElasticSearchIndexer.xml"],
     "repository": {"origin": {"uri": "https://github.com/simplicitesoftware/module-elasticsearchindexer.git"}},
     "version": "1",
     "platform": "5.2.0-alpha"

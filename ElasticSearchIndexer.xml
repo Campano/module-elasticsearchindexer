@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simplicite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.simplicite.fr/base" xsi:schemaLocation="http://www.simplicite.fr/base https://www.simplicite.io/resources/schemas/base.xsd">
+<object>
+	<name>Module</name>
+	<action>upsert</action>
+	<data>
+		<mdl_name>ElasticSearchIndexer</mdl_name>
+		<mdl_version>1</mdl_version>
+		<mdl_prefix>esi</mdl_prefix>
+		<mdl_url><![CDATA[{
+	"type": "git",
+	"origin": { "uri": "https://github.com/simplicitesoftware/module-elasticsearchindexer.git" }
+}]]></mdl_url>
+		<mdl_type>T</mdl_type>
+		<mdl_comment><![CDATA[Elastic Search playground module
+====================
+
+This module is used as a way to index Simplicité's apps contents into an ElasticSearch Instance.
+
+It is an pre-pre-alpha MVP.
+
+Run an elastic search instance
+---------------------------
+
+Create `docker-compose.yml`
+
+```yml
+version: "3"
+services:
+  elasticsearch:
+    image: elasticsearch:7.10.1
+    restart: always    
+    environment:
+      discovery.type: single-node
+    container_name: elasticsearch
+    ports:
+     - 9200:9200
+     - 9300:9300
+  kibana:
+    image: kibana:7.10.1
+    restart: always
+    container_name: kibana
+    ports:
+      - 5601:5601
+```
+
+Run docker and expose port
+
+```shell
+sudo docker-compose up -d
+ngrok http 9200
+```
+
+Configure `ESI_CONFIG` with ES instance
+
+```json
+{
+	"instance": "http://78e183b5193e.ngrok.io"
+}
+```]]></mdl_comment>
+	</data>
+</object>
+<object>
+	<name>SystemParam</name>
+	<action>upsert</action>
+	<data>
+		<sys_code>ESI_CONFIG</sys_code>
+		<sys_value><![CDATA[{
+	"instance": "<elasticsearch instance URL>",
+	"index": "<optional elasticsearch index to use, defaults to 'simplicite'>"
+	"credentials": "<optional basic http credentials 'user:password'>"
+}]]></sys_value>
+		<sys_value2/>
+		<sys_type>PRV</sys_type>
+		<sys_desc/>
+		<row_module_id.mdl_name>ElasticSearchIndexer</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>Resource</name>
+	<action>upsert</action>
+	<data>
+		<res_object>
+			<object>
+							<name>Disposition</name>
+				<data>
+					<dis_code>default</dis_code>
+				</data>
+			</object>
+		</res_object>
+		<res_type>IMG</res_type>
+		<res_lang>ANY</res_lang>
+		<res_code>elasticsearch-logo</res_code>
+		<res_cached>0</res_cached>
+		<res_file/>
+		<res_image>resources/Disposition/default/elasticsearch-logo.svg</res_image>
+		<row_module_id.mdl_name>ElasticSearchIndexer</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>Script</name>
+	<action>upsert</action>
+	<data>
+		<scr_code>EsiHelper</scr_code>
+		<scr_file>src/com/simplicite/commons/ElasticSearchIndexer/EsiHelper.java</scr_file>
+		<scr_type>JSR</scr_type>
+		<row_module_id.mdl_name>ElasticSearchIndexer</row_module_id.mdl_name>
+	</data>
+	<data>
+		<scr_code>EsiTester</scr_code>
+		<scr_file>test/src/com/simplicite/tests/ElasticSearchIndexer/EsiTester.java</scr_file>
+		<scr_type>TST</scr_type>
+		<row_module_id.mdl_name>ElasticSearchIndexer</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>ModuleCommit</name>
+	<action>upsert</action>
+	<data>
+		<row_module_id.mdl_name>ElasticSearchIndexer</row_module_id.mdl_name>
+	</data>
+	<data>
+		<row_module_id.mdl_name>ElasticSearchIndexer</row_module_id.mdl_name>
+	</data>
+	<data>
+		<row_module_id.mdl_name>ElasticSearchIndexer</row_module_id.mdl_name>
+	</data>
+	<data>
+		<row_module_id.mdl_name>ElasticSearchIndexer</row_module_id.mdl_name>
+	</data>
+	<data>
+		<row_module_id.mdl_name>ElasticSearchIndexer</row_module_id.mdl_name>
+	</data>
+</object>
+</simplicite>
